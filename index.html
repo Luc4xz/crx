@@ -460,6 +460,25 @@
     }
   </style>
 </head>
+<script>
+  let currentY = window.scrollY;
+  let targetY = window.scrollY;
+
+  window.addEventListener("wheel", function (e) {
+    e.preventDefault();
+    targetY += e.deltaY * 1.2;
+    targetY = Math.max(0, Math.min(targetY, document.body.scrollHeight - window.innerHeight));
+  }, { passive: false });
+
+  function smoothScroll() {
+    currentY += (targetY - currentY) * 0.08;
+    window.scrollTo(0, currentY);
+    requestAnimationFrame(smoothScroll);
+  }
+
+  smoothScroll();
+</script>
+
 <body>
   <nav>
     <div class="nav-inner">
@@ -477,7 +496,7 @@
       <div class="badge">✦ CS × HCI × Design Creativity</div>
       <h1>Building thoughtful technology through research, code, and design.</h1>
       <p>
-        I’m Lucas, a student at UW–Madison exploring human-computer interaction,
+        I’m Lucas, an student at University of Wisconsin–Madison exploring human-computer interaction,
         robotics, and creative product systems. My work sits between technical
         implementation and design imagination.
       </p>
