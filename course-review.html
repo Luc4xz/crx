@@ -13,8 +13,18 @@
     }
 
     @font-face {
+      font-family: "GARAB";
+      src: url("Font/GARABD.TTF") format("truetype");
+    }
+
+    @font-face {
       font-family: "Gat B";
       src: url("Font/Gatchina Bold.ttf") format("truetype");
+    }
+    
+    @font-face {
+      font-family: "Reth";
+      src: url("Font/Rethena Demo.ttf") format("truetype");
     }
 
     :root {
@@ -93,7 +103,7 @@
     }
 
     .page-title {
-      font-family: "Gat B", sans-serif;
+      font-family: "GARAB", sans-serif;
       font-size: clamp(34px, 5vw, 58px);
       line-height: 1;
       font-weight: 400;
@@ -109,36 +119,114 @@
     }
 
     .toc {
+      display: block;
       margin-bottom: 72px;
       padding-top: 24px;
       border-top: 1px solid var(--line);
     }
 
     .toc-title {
-      font-family: "Gat B", sans-serif;
+      font-family: "GARAB", sans-serif;
       font-size: 24px;
       font-weight: 400;
+      display: block;
       margin-bottom: 18px;
     }
 
-    .toc-list {
-      display: grid;
-      gap: 10px;
+    .toc-table-wrap {
+      width: 100%;
+      display: block;
+      overflow-x: auto;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .toc-table {
+      width: 100%;
+      min-width: 760px;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+
+    .toc-table th,
+    .toc-table td {
+      padding: 15px 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .toc-table th {
+      font-family: "GARAB", sans-serif;
+      font-weight: 400;
+      color: var(--text);
+      background: #ffffff;
+    }
+
+    .toc-table td {
       color: var(--muted);
       font-family: "GARA", serif;
-      font-size: 16px;
-      list-style-position: inside;
     }
 
-    .toc-list a {
-      color: inherit;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s ease, color 0.2s ease;
-    }
-
-    .toc-list a:hover {
+    .toc-table a {
       color: var(--text);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+
+    .toc-table a:hover {
       border-color: currentColor;
+    }
+
+    .toc-controls {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      margin-top: 24px;
+      
+    }
+
+    #toc-pages {
+      display: flex;
+      align-items: center;
+    }
+
+    .toc-control,
+    .toc-page {
+      border: 0;
+      background: #ffffff;
+      color: var(--text);
+      padding: 8px 14px;
+      font: inherit;
+      cursor: pointer;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    .toc-control::after,
+    .toc-page::after {
+      content: "|";
+      position: absolute;
+      right: -2px;
+      color: var(--muted);
+    }
+
+    .toc-control:last-child::after {
+      content: "";
+    }
+
+    .toc-page.is-active {
+      background: transparent;
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .toc-control:disabled {
+      opacity: 0.36;
+      cursor: default;
     }
 
     .course-list {
@@ -168,7 +256,7 @@
     }
 
     .course-name {
-      font-family: "Gat B", sans-serif;
+      font-family: "GARAB", sans-serif;
       font-size: 28px;
       line-height: 1;
       font-weight: 400;
@@ -249,24 +337,36 @@
     <div class="page-inner">
       <h1 class="page-title">Course Guide</h1>
       <p class="page-intro">
-        I use this page to keep notes on courses I have taken at the university.
-        This introduction is a placeholder for my own comments about the class
-        experience, workload, projects, instructors, and what I would recommend
-        to other students.
+        I use this page to keep notes on courses I have taken at UW-Madison, unless otherwise specified.
+        I am pursuing a B.S. in Computer Sciences and a B.S. in Information Science, so yeah… 
+        there are also a lot of random breadth classes here lol.
+        
       </p>
 
       <nav class="toc" aria-label="Table of contents">
         <h2 class="toc-title">Table of Contents</h2>
-        <ol class="toc-list">
-          <li><a href="#hci">Human-Computer Interaction</a></li>
-          <li><a href="#data-visualization">Data Visualization</a></li>
-          <li><a href="#interaction-design">Interaction Design Studio</a></li>
-          <li><a href="#software-development">Software Development</a></li>
-        </ol>
+        <div class="toc-table-wrap">
+          <table class="toc-table">
+            <thead>
+              <tr>
+                <th>Course Number</th>
+                <th>Course Title</th>
+                <th>Semester</th>
+                <th>Instructor</th>
+              </tr>
+            </thead>
+            <tbody id="toc-table-body"></tbody>
+          </table>
+        </div>
+        <div class="toc-controls" aria-label="Table pagination">
+          <button class="toc-control" id="toc-prev" type="button">PREV</button>
+          <div id="toc-pages"></div>
+          <button class="toc-control" id="toc-next" type="button">NEXT</button>
+        </div>
       </nav>
 
       <div class="course-list">
-        <article class="course-row" id="COMP SCI 200">
+        <article class="course-row" id="comp-sci-200">
           <div class="course-media">
             <img src="research1.png" alt="COMP SCI 200" />
           </div>
@@ -280,7 +380,7 @@
           </div>
         </article>
 
-        <article class="course-row" id="ECE 252">
+        <article class="course-row" id="ece-252">
           <div class="course-media">
             <img src="project1.png" alt="ECE 252" />
           </div>
@@ -294,7 +394,7 @@
           </div>
         </article>
 
-        <article class="course-row" id="ESL 116">
+        <article class="course-row" id="esl-116">
           <div class="course-media">
             <img src="project2.png" alt="ESL 116" />
           </div>
@@ -308,7 +408,7 @@
           </div>
         </article>
 
-        <article class="course-row" id="AF 100">
+        <article class="course-row" id="af-100">
           <div class="course-media">
             <img src="me.png" alt="AF 100" />
           </div>
@@ -322,7 +422,7 @@
           </div>
         </article>
 
-        <article class="course-row" id="SW 100">
+        <article class="course-row" id="sw-100">
           <div class="course-media">
             <img src="me.png" alt="SW 100" />
           </div>
@@ -335,6 +435,19 @@
             </p>
           </div>
         </article>
+        <article class="course-row" id="comp-sci-300">
+          <div class="course-media">
+            <img src="me.png" alt="COMP SCI 300" />
+          </div>
+          <div>
+            <h2 class="course-name">COMP SCI 300: Programming II</h2>
+            <p class="course-instructor">TBD</p>
+            <p class="course-desc">
+              
+            </p>
+          </div>
+        </article>
+       
       </div>
     </div>
   </main>
@@ -346,6 +459,186 @@
       smoothWheel: true,
       wheelMultiplier: 1
     });
+
+    const courses = [
+      {
+        number: "COMP SCI 200",
+        title: "Programming I",
+        semester: "Spring 26",
+        instructor: "Andrew Kuemmel",
+        href: "#comp-sci-200"
+      },
+      {
+        number: "ECE 252",
+        title: "Introduction to Computer Engineering",
+        semester: "Spring 26",
+        instructor: "Shayne Wadle",
+        href: "#ece-252"
+      },
+      {
+        number: "ESL 116",
+        title: "Academic Reading and Vocabulary Skills",
+        semester: "Spring 26",
+        instructor: "Professor Alejandro Azocar",
+        href: "#esl-116"
+      },
+      {
+        number: "AF 100",
+        title: "Introduction to African Cultural Expression",
+        semester: "Spring 26",
+        instructor: "Xi Jin",
+        href: "#af-100"
+      },
+      {
+        number: "SW 100",
+        title: "So You Want To Change The World?",
+        semester: "Spring 26",
+        instructor: "Yolanda Shelton-Morris",
+        href: "#sw-100"
+      },
+      {
+        number: "COMP SCI 300",
+        title: "Programming II",
+        semester: "Summer 26",
+        instructor: "TBD",
+        href: "#comp-sci-300"
+      },
+      {
+        number: "COMP SCI 400",
+        title: "Programming III",
+        semester: "Fall 26",
+        instructor: "Florian Heimerl",
+        href: "#comp-sci-400"
+      },
+      {
+        number: "COMP SCI 354",
+        title: "Machine Organization and Programming",
+        semester: "Fall 26",
+        instructor: "Gary Dahl",
+        href: "#comp-sci-354"
+      },
+      {
+        number: "ESL 118",
+        title: "Academic Writing II",
+        semester: "Fall 26",
+        instructor: "TBD",
+        href: "#esl-118"
+      },
+      {
+        number: "BIOCHEM 104",
+        title: "Molecules to Life and the Nature of Science",
+        semester: "Fall 26",
+        instructor: "TBD",
+        href: "#biochem-104"
+      },
+      {
+        number: "ASTRON 103",
+        title: "The Evolving Universe: Stars, Galaxies, and Cosmology",
+        semester: "Fall 26",
+        instructor: "TBD",
+        href: "#astron-103"
+      },
+      {
+        number: "",
+        title: "",
+        semester: "",
+        instructor: "",
+        href: "#"
+      },
+      {
+        number: "",
+        title: "",
+        semester: "",
+        instructor: "",
+        href: "#"
+      },
+      {
+        number: "",
+        title: "",
+        semester: "",
+        instructor: "",
+        href: "#"
+      },
+      {
+        number: "",
+        title: "",
+        semester: "",
+        instructor: "",
+        href: "#"
+      },
+      {
+        number: "",
+        title: "",
+        semester: "",
+        instructor: "",
+        href: "#"
+      },
+      {
+        number: "",
+        title: "",
+        semester: "",
+        instructor: "",
+        href: "#"
+      }
+    ];
+
+    const rowsPerPage = 10;
+    const tableBody = document.getElementById("toc-table-body");
+    const pageButtons = document.getElementById("toc-pages");
+    const previousButton = document.getElementById("toc-prev");
+    const nextButton = document.getElementById("toc-next");
+    let currentPage = 1;
+
+    function renderCourseTable() {
+      const totalPages = Math.ceil(courses.length / rowsPerPage);
+      const start = (currentPage - 1) * rowsPerPage;
+      const visibleCourses = courses.slice(start, start + rowsPerPage);
+
+      tableBody.innerHTML = visibleCourses.map(function (course) {
+        const titleCell = course.title ? `<a href="${course.href}">${course.title}</a>` : "";
+        return `
+          <tr>
+            <td>${course.number}</td>
+            <td>${titleCell}</td>
+            <td>${course.semester}</td>
+            <td>${course.instructor}</td>
+          </tr>
+        `;
+      }).join("");
+
+      pageButtons.innerHTML = "";
+      for (let page = 1; page <= totalPages; page += 1) {
+        const button = document.createElement("button");
+        button.className = page === currentPage ? "toc-page is-active" : "toc-page";
+        button.type = "button";
+        button.textContent = page;
+        button.addEventListener("click", function () {
+          currentPage = page;
+          renderCourseTable();
+        });
+        pageButtons.appendChild(button);
+      }
+
+      previousButton.disabled = currentPage === 1;
+      nextButton.disabled = currentPage === totalPages;
+    }
+
+    previousButton.addEventListener("click", function () {
+      if (currentPage > 1) {
+        currentPage -= 1;
+        renderCourseTable();
+      }
+    });
+
+    nextButton.addEventListener("click", function () {
+      const totalPages = Math.ceil(courses.length / rowsPerPage);
+      if (currentPage < totalPages) {
+        currentPage += 1;
+        renderCourseTable();
+      }
+    });
+
+    renderCourseTable();
 
     function raf(time) {
       lenis.raf(time);
