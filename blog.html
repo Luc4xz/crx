@@ -220,8 +220,19 @@
       padding-top: 54px;
     }
 
+    .developing-message {
+      padding: 64px 28px;
+      border: 1px solid #cfcfcf;
+      border-radius: 18px;
+      background: #ffffff;
+      color: var(--muted);
+      font-size: 22px;
+      font-family: "GARA", sans-serif;
+      text-align: center;
+    }
+
     .post-list {
-      display: grid;
+      display: none;
       gap: 24px;
     }
 
@@ -358,6 +369,7 @@
       </section>
 
       <section class="blog-layout" aria-label="Blog posts">
+        <p class="developing-message">New stories are coming in.</p>
         <div class="post-list">
           <article class="post-card" data-year="2026">
             <div class="post-content">
@@ -461,23 +473,6 @@
       });
     });
 
-    const filterButtons = document.querySelectorAll(".filter-button");
-    const postCards = document.querySelectorAll(".post-card");
-
-    filterButtons.forEach(function (button) {
-      button.addEventListener("click", function () {
-        const selectedYear = button.dataset.filter;
-
-        filterButtons.forEach(function (item) {
-          item.classList.toggle("is-active", item === button);
-        });
-
-        postCards.forEach(function (card) {
-          const shouldShow = selectedYear === "all" || card.dataset.year === selectedYear;
-          card.style.display = shouldShow ? "grid" : "none";
-        });
-      });
-    });
   </script>
 </body>
 </html>
