@@ -13,17 +13,20 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { background: var(--bg); color: var(--text); line-height: 1.55; overflow-x: hidden; }
     a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
-    header { position: fixed; top: 0; left: 0; width: 100%; height: 76px; padding: 0 24px; display: flex; align-items: center; background: rgba(255, 255, 255, 0.78); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid var(--line); z-index: 1000; }
-    .header-inner { width: min(100%, 1160px); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    img 
+    { display: block; max-width: 100%; }
+    header 
+    { position: fixed; top: 0; left: 0; width: 100%; height: 76px; padding: 0 24px; display: flex; align-items: center; background: rgba(255, 255, 255, 0.78); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid var(--line); z-index: 1000; }
+    .header-inner 
+    { width: min(100%, 1160px); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
     .brand { font-size: 24px; font-family: "GARAB", sans-serif; }
     nav { display: flex; align-items: center; gap: 30px; font-size: 16px; font-family: "GARA", sans-serif; color: var(--muted); }
     main { padding: 132px 24px 88px; }
     .page-inner { width: min(100%, 980px); margin: 0 auto; }
     .back-link { display: inline-block; margin-bottom: 34px; color: #3351f9; border-bottom: 1px solid currentColor; font-size: 18px; font-family: "GARA", sans-serif; }
     .detail-meta { margin-bottom: 14px; color: var(--muted); font-size: 16px; font-family: "GARA", sans-serif; }
-    .detail-title { font-size: clamp(36px, 6vw, 72px); line-height: 0.95; font-weight: 400; font-family: "Reth", sans-serif; margin-bottom: 28px; }
-    .detail-image { background: var(--soft); overflow: hidden; margin-bottom: 34px; border: 1px solid #cfcfcf; }
+    .detail-title { font-size: clamp(30px, 2.8vw, 36px); line-height: 0.95; font-weight: 400; font-family: "Reth", sans-serif; margin-bottom: 28px; }
+    .detail-image { width: min(100%, 650px); background: var(--soft); overflow: hidden; margin: 0 auto 34px; border: 1px solid #cfcfcf; }
     .detail-image img { width: 100%; height: auto; object-fit: contain; }
     .detail-body { display: grid; gap: 22px; color: var(--muted); font-size: 20px; font-family: "GARA", serif; }
     @media (max-width: 760px) { header { height: auto; padding: 20px 24px; } .header-inner { flex-direction: column; align-items: flex-start; gap: 14px; } nav { flex-wrap: wrap; gap: 16px; } main { padding: 132px 20px 64px; } }
@@ -34,10 +37,10 @@
     <div class="header-inner">
       <a class="brand" href="index.html">Chengran Xu</a>
       <nav>
-        <a href="index.html">Home</a>
-        <a href="course-review.html">Review</a>
-        <a href="blog.html">Blogs</a>
-        <a href="photo-collection.html">Collections</a>
+        <a href="index.html#home">Home</a>
+        <a href="index.html#about-title">About</a>
+        <a href="index.html#projects-title">Projects</a>
+        <a href="index.html#misc-title">Misc</a>
       </nav>
     </div>
   </header>
@@ -50,10 +53,24 @@
         <img src="project2.png" alt="Urban Halo" />
       </div>
       <div class="detail-body">
-        <p>A self-guided drone system designed to enhance the efficiency of traffic surveillance and management in urban environments, providing real-time data and insights to city planners and traffic authorities.</p>
-        <p>This individual page can show the full project context, system concept, prototype details, and visual process.</p>
+        <p>Urban Halo is a concept design project that explores how autonomous drones could support faster, safer, and more intelligent traffic accident response in dense urban environments. The project began with research into current traffic pressure, accident delays, police response limitations, and the uneven distribution of emergency resources across large cities. Through secondary research, technical analysis, and a police interview, the project identified a clear gap between traditional on-site traffic management and the needs of modern smart-city governance: officers often face delayed arrival, high-risk road conditions, time-consuming evidence collection, and limited access in crowded or complex accident sites. In response, Urban Halo proposes a traffic-light-embedded aerial system that can be automatically activated when an accident is detected, take off from nearby urban infrastructure, fly autonomously to the scene, and use cameras, infrared sensing, GPS, computer vision, and AI-based severity analysis to collect early information before police arrive. The final design, the Twin-Wing Hover Eye Drone, combines a compact foldable structure, bio-inspired visual intelligence, dual-wing stability, LED status indicators, a front sensor suite, protective armor shell, power module, and propulsion system into a futuristic but practical urban device. Its workflow moves from accident detection to nearest-drone activation, autonomous flight, scene scanning, object recognition, accident scoring, and police-style report generation, creating an early-response layer that improves situational awareness, supports command-center decisions, and helps transform traffic accident handling from a slow reactive process into a faster, networked, and data-driven public safety system.</p>
       </div>
     </article>
   </main>
+  <script src="https://unpkg.com/lenis@1.3.13/dist/lenis.min.js"></script>
+  <script>
+    const lenis = new Lenis({
+      duration: 1.1,
+      smoothWheel: true,
+      wheelMultiplier: 1
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  </script>
 </body>
 </html>

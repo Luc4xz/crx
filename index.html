@@ -217,7 +217,7 @@
       width: 332px;
       height: 332px;
       border-radius: 20%;
-      background: radial-gradient(circle, rgba(88, 86, 86, 0.36) 0%, rgba(130, 130, 130, 0.16) 58%, rgba(120, 120, 120, 0.03) 86%);
+      background: radial-gradient(circle, rgba(88, 86, 86, 0.36) 20%, rgba(130, 130, 130, 0.16) 48%, rgba(185, 183, 183, 0.03) 86%);
       filter: blur(16px);
       z-index: 0;
     }
@@ -454,7 +454,7 @@
     .project-desc {
       font-size: 19px;
       color: var(--muted);
-      max-width: 620px;
+      max-width: 740px;
       font-family: "GARA", sans-serif;
     }
 
@@ -560,137 +560,155 @@
     }
 
     @media (max-width: 920px) {
-      :root {
-        --anchor-offset: 104px;
-      }
+  :root {
+    --anchor-offset: 104px;
+  }
 
-      .cursor-circle {
-        display: none;
-      }
+  .cursor-circle {
+    display: none;
+  }
 
-      header {
-        height: 76px;
-        padding: 20px 24px;
-      }
+  header {
+    height: 76px;
+    padding: 20px 24px;
+  }
 
-      .header-inner {
-        flex-direction: row;
-        align-items: center;
-        gap: 16px;
-      }
+  nav {
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: flex-end;
+  }
 
-      nav {
-        flex-wrap: wrap;
-        gap: 16px;
-        justify-content: flex-end;
-      }
+  section {
+    padding: 124px 20px 64px;
+  }
 
-      section {
-        padding: 120px 20px 66px;
-      }
+  .home {
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 128px 20px 48px;
+    place-items: center;
+  }
 
-      .home {
-        min-height: 100vh;
-        min-height: 100svh;
-        padding: 128px 20px 48px;
-        place-items: center;
-      }
+  .home-inner {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    text-align: left;
+    justify-items: center;
+    width: min(100%, 520px);
+  }
 
-      .home-inner {
-        grid-template-columns: 1fr;
-        gap: 34px;
-        text-align: left;
-        justify-items: center;
-        width: min(100%, 520px);
-      }
+  .home-content {
+    width: min(100%, 32rem);
+    justify-self: center;
+    text-align: left;
+    padding-left: clamp(16px, 5.2vw, 36px);
+    padding-right: 0;
+  }
 
-      .home-content {
-        width: min(100%, 32rem);
-        justify-self: center;
-        text-align: left;
-        padding-left: clamp(16px, 5.2vw, 36px);
-        padding-right: 0;
-      }
+  .home-intro,
+  .home-sub,
+  .contact-icons {
+    width: 100%;
+  }
 
-      .home-intro,
-      .home-sub,
-      .contact-icons {
-        width: 100%;
-      }
+  .portrait-kicker {
+    display: block;
+    text-align: center;
+  }
 
-      .portrait-kicker {
-        display: block;
-        text-align: center;
-      }
+  .desktop-kicker {
+    display: none;
+  }
 
-      .desktop-kicker {
-        display: none;
-      }
+  .portrait-block {
+    justify-content: center;
+    margin-top: 0;
+  }
 
-      .portrait-block {
-        justify-content: center;
-        margin-top: 0;
-      }
+  .portrait-block::before {
+    width: min(300px, calc(100vw - 40px));
+    height: min(300px, calc(100vw - 40px));
+  }
 
-      .portrait-block::before {
-        width: min(300px, calc(100vw - 40px));
-        height: min(300px, calc(100vw - 40px));
-      }
+  .portrait-frame {
+    width: min(252px, calc(100vw - 40px));
+    height: min(252px, calc(100vw - 40px));
+  }
 
-      .portrait-frame {
-        width: min(252px, calc(100vw - 40px));
-        height: min(252px, calc(100vw - 40px));
-      }
+  .home-name {
+    margin-top: 0;
+  }
 
-      .home-name {
-        margin-top: 0;
-      }
+  .home-intro {
+    font-size: clamp(30px, 10.5vw, 42px);
+    line-height: 1.06;
+    letter-spacing: 0;
+  }
 
-      .home-intro {
-        font-size: clamp(36px, 11vw, 44px);
-        line-height: 1.06;
-        letter-spacing: 0;
-      }
+  .future-line {
+    display: inline-flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    width: auto;
+  }
 
-      .future-line {
-        display: inline-flex;
-        flex-wrap: wrap;
-        max-width: 100%;
-        width: auto;
-      }
+  .experience-item {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 20px;
+  }
 
-      .experience-item {
-        grid-template-columns: 1fr;
-        gap: 18px;
-        padding: 20px;
-      }
+  .project-item {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 20px;
+  }
 
-      .project-item {
-        grid-template-columns: 1fr;
-        gap: 18px;
-        padding: 20px;
-      }
+  .project-media {
+    min-height: auto;
+    aspect-ratio: 16 / 10;
+  }
 
-      .project-media {
-        min-height: auto;
-        aspect-ratio: 16 / 10;
-      }
+  .project-copy {
+    gap: 12px;
+  }
 
-      .project-copy {
-        gap: 12px;
-      }
-
-      .project-desc {
-        max-width: 560px;
-      }
-
-    }
+  .project-desc {
+    max-width: 560px;
+  }
+}
 
     @media (max-width: 560px) {
-      :root {
-        --anchor-offset: 132px;
-      }
-    }
+  :root {
+    --anchor-offset: 132px;
+  }
+
+  header {
+    height: auto;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  nav {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 12px 16px;
+  }
+
+  .home {   
+    padding-top: 150px;
+  }
+
+  .home-intro {
+    font-size: clamp(30px, 10.5vw, 42px);
+  }
+}
 
   </style>
 </head>
@@ -753,7 +771,7 @@
             <a class="contact-icon-link" href="https://github.com/Luc4xz" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
               <img class="contact-icon" src="IconPack/github-brands-solid-full.svg" alt="" />
             </a>
-            <a class="contact-icon-link" href="https://scholar.google.com/citations?user=placeholder" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar profile">
+            <a class="contact-icon-link" href="https://scholar.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar profile">
               <img class="contact-icon" src="IconPack/google-scholar-brands-solid-full.svg" alt="" />
             </a>
             <a class="contact-icon-link" href="https://x.com/placeholder" target="_blank" rel="noopener noreferrer" aria-label="X profile">
@@ -786,9 +804,9 @@
           and future interfaces.<br><br>
           Beyond research, I’ve also gained <strong>industry experience</strong> through software engineering 
           and data science internships at <strong>Siemens</strong>, where I worked on technical development, 
-          automation workflows, and data-driven projects.<br><br>
+          automation workflows, and data-driven projects. You can find more information in my <a class="misc-link" href="CV.pdf" target="_blank"> CV</a>.<br><br>
           Outside of academics, I enjoy working out, snow skiing in winter times, and exploring the beauty around Madison. 
-          You can find more information in my <a class="misc-link" href="CV.pdf" target="_blank"> CV.</a>
+          
         </p>
       </div>
     </section>
@@ -840,9 +858,9 @@
               <p class="project-meta"><span>Concept design, human-AI interaction, product design, prototyping</span></p>
               <a class="project-link" href="project-live-streaming-assistant.html">Link to project</a>
               <p class="project-desc">
-                A wearable speculative device reflecting on social media addiction,
-                virtual identity, and behavioral feedback through physical and
-                digital interaction cues.
+                An AI-assisted livestreaming companion system that uses real-time audience analysis, facial & voice monitoring
+                 and foot-controlled interaction to help streamers reduce cognitive pressure
+                  and respond naturally during live performance.
               </p>
             </div>
           </article>
