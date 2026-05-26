@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="../assets/icons/icon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Urban Halo | Chengran Xu</title>
+  <style>
+    @font-face { font-family: "GARAB"; src: url("../assets/fonts/GARABD.TTF") format("truetype"); }
+    @font-face { font-family: "GARA"; src: url("../assets/fonts/GARA.TTF") format("truetype"); }
+    @font-face { font-family: "Reth"; src: url("../assets/fonts/Rethena Demo.ttf") format("truetype"); }
+    :root { --bg: #ffffff; --text: #111111; --muted: #6f6a61; --line: rgba(17, 17, 17, 0.22); --soft: #f5f5f5; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); line-height: 1.55; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    img 
+    { display: block; max-width: 100%; }
+    header 
+    { position: fixed; top: 0; left: 0; width: 100%; height: 76px; padding: 0 24px; display: flex; align-items: center; background: rgba(255, 255, 255, 0.78); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid var(--line); z-index: 1000; }
+    .header-inner 
+    { width: min(100%, 1160px); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .brand { font-size: 24px; font-family: "GARAB", sans-serif; }
+    nav { display: flex; align-items: center; gap: 30px; font-size: 16px; font-family: "GARA", sans-serif; color: var(--muted); }
+    main { padding: 132px 24px 88px; }
+    .page-inner { width: min(100%, 980px); margin: 0 auto; }
+    .back-link { display: inline-block; margin-bottom: 34px; color: #3351f9; border-bottom: 1px solid currentColor; font-size: 18px; font-family: "GARA", sans-serif; }
+    .detail-meta { margin-bottom: 14px; color: var(--muted); font-size: 16px; font-family: "GARA", sans-serif; }
+    .detail-title { font-size: clamp(30px, 2.8vw, 36px); line-height: 0.95; font-weight: 400; font-family: "Reth", sans-serif; margin-bottom: 28px; }
+    .detail-image { width: min(100%, 650px); background: var(--soft); overflow: hidden; margin: 0 auto 34px; border: 1px solid #cfcfcf; }
+    .detail-image img { width: 100%; height: auto; object-fit: contain; }
+    .detail-body { display: grid; gap: 22px; color: var(--muted); font-size: 20px; font-family: "GARA", serif; }
+    @media (max-width: 760px) { header { height: auto; padding: 20px 24px; } .header-inner { flex-direction: column; align-items: flex-start; gap: 14px; } nav { flex-wrap: wrap; gap: 16px; } main { padding: 132px 20px 64px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="../index.html">Chengran Xu</a>
+      <nav>
+        <a href="../index.html#home">Home</a>
+        <a href="../index.html#about-title">About</a>
+        <a href="../index.html#projects-title">Projects</a>
+        <a href="../index.html#misc-title">Misc</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="page-inner">
+      <a class="back-link" href="../index.html#projects">Back to projects</a>
+      <p class="detail-meta">LLM-powered system, human-AI interaction, industrial design</p>
+      <h1 class="detail-title">Urban Halo</h1>
+      <div class="detail-image">
+        <img src="../assets/images/homepage/project2.png" alt="Urban Halo" />
+      </div>
+      <div class="detail-body">
+        <p>In most cities today, traffic accidents create a chain reaction of problems far beyond the collision itself. Congestion spreads rapidly through connected intersections, emergency vehicles become trapped inside traffic, witnesses often provide incomplete or inaccurate information, and police officers frequently arrive with limited understanding of the actual severity of the scene. During the first few minutes after an accident, the lack of reliable information creates uncertainty for dispatch systems and slows down emergency decision-making. The project begins with this “first five minutes” problem as its central research foundation. <br><br>
+          The project proposes a new form of urban emergency response through an AI-powered autonomous traffic drone system embedded directly into city infrastructure. Rather than functioning as a traditional surveillance drone or a manually controlled police tool, the system is designed as a distributed intelligent first-response network capable of reacting to traffic accidents within seconds after detection. The project addresses one of the largest inefficiencies in modern urban emergency systems: the critical delay between the moment an accident occurs and the moment emergency responders arrive on-site. <br><br>
+          The initial phase of the project focuses on urban traffic research and accident-response analysis. Research investigates different categories of road accidents including multi-vehicle collisions, pedestrian impacts, motorcycle crashes, intersection blind-spot accidents, and weather-related incidents. The project particularly concentrates on dense urban environments where traffic flow, vertical infrastructure, and population density increase the complexity of emergency response. Unlike rural accidents, urban accidents often involve secondary risks such as blocked intersections, delayed ambulances, crowd gathering, and cascading traffic congestion. Through research, the project identifies that even highly developed cities still rely heavily on human reporting systems such as emergency phone calls, nearby witnesses, or delayed traffic camera monitoring.
+          The project then examines how police departments and emergency responders currently operate during traffic incidents. Existing systems generally require officers to physically travel to the location before they can fully assess the severity of the accident. This creates a major information gap between dispatch centers and field officers. During this period, responders may not know whether the scene contains injuries, fire hazards, fuel leakage, road blockage, unconscious victims, or secondary collision risks. As a result, emergency resources are often either under-dispatched or over-dispatched. Through interviews and observational research regarding police workflows, the project identifies several recurring pain points: slow situational awareness, limited visibility before arrival, poor coordination between departments, and inefficient allocation of emergency resources. <br><br>
+          The project proposes that autonomous drones integrated into traffic infrastructure could function as an intelligent bridge between the accident scene and emergency responders. Instead of waiting for officers to arrive physically, the drone system immediately deploys from nearby traffic-light docking stations and reaches the site ahead of human responders. The drone becomes the first observer at the accident scene, collecting visual, spatial, and environmental information in real time. This transforms the emergency workflow from reactive to predictive.
+          The conceptual foundation of the project is based on distributed infrastructure deployment. Rather than operating from centralized police stations, drones are stored inside modified traffic lights or urban utility structures positioned across the city. By embedding drones into existing infrastructure, the system minimizes deployment distance and maximizes response speed. Every traffic-light station functions as a localized launch node connected to a citywide AI coordination network. When an accident is detected, the nearest available drone automatically launches and navigates toward the incident location. <br><br>
+          Accident detection can originate from multiple data sources. The system may receive triggers from road sensors, city traffic cameras, emergency calls, vehicle telemetry, sound anomaly detection, or AI-based traffic monitoring systems. Once abnormal conditions are identified, the nearest drone is activated automatically without requiring direct human control. This autonomous deployment is one of the most important aspects of the project because it removes the dependency on manual drone operation and allows citywide scalability.
+          The drone itself is designed as a compact, high-mobility aerial system optimized for urban navigation. The form language of the drone combines futuristic emergency aesthetics with practical engineering considerations. Its structure prioritizes lightweight movement, aerodynamic efficiency, stability during hovering, and compatibility with narrow infrastructure docking spaces. The drone is visually inspired by emergency-response dynamics such as fire, motion, and energy, while still maintaining a professional industrial appearance suitable for public infrastructure environments.
+          The drone includes multiple integrated sensing systems designed for accident-scene analysis. High-resolution RGB cameras provide visual identification of vehicles, road conditions, and pedestrians. Infrared and thermal imaging sensors allow the drone to detect heat anomalies, engine fires, or human body signatures during nighttime or low-visibility conditions. Depth sensors and spatial mapping systems help reconstruct the geometry of the accident scene in three-dimensional space. GPS modules continuously transmit positional data to the command center, while onboard communication systems maintain real-time synchronization with city infrastructure networks.<br><br>
+          Once the drone arrives at the scene, it begins conducting environmental scanning and data acquisition. The drone circles or hovers above the accident site while collecting continuous video streams and sensor information. Unlike traditional CCTV systems that provide fixed viewpoints, the drone dynamically changes perspective to optimize visibility and situational coverage. The system can identify damaged vehicles, blocked roads, overturned objects, pedestrian movement, and crowd behavior from multiple angles.
+          At this stage, the project introduces its most important technological component: the AI analysis pipeline and the LLM-based reasoning system. The project intentionally separates perception intelligence from reasoning intelligence. Rather than claiming that the LLM directly “sees” the world, the system architecture uses specialized computer vision models as the primary perception layer. These vision systems analyze raw sensor data and convert environmental information into structured observations. <br><br>
+          The computer vision layer is responsible for object recognition and environmental interpretation. Using trained detection models, the system identifies vehicles, pedestrians, road obstacles, damaged structures, smoke, fire, traffic density, and lane blockage conditions. The vision models can classify accident types, estimate impact zones, and monitor whether victims remain stationary or mobile. Additional algorithms can analyze vehicle deformation severity, detect flipped cars, or recognize dangerous conditions such as fuel leakage or roadside hazards.<br><br>
+          After perception data is extracted, the structured information enters the severity-scoring layer. This stage converts environmental observations into risk evaluations. The system estimates the seriousness of the incident using multiple variables including collision scale, number of vehicles involved, road blockage percentage, pedestrian presence, environmental hazards, and abnormal thermal signatures. The AI then categorizes the accident into different urgency levels such as low, medium, high, or critical severity. <br><br>
+          The LLM layer functions as the reasoning and communication interface of the entire system. Instead of directly analyzing pixels, the LLM receives structured outputs generated by the computer vision system. This includes object lists, hazard scores, traffic conditions, location information, environmental metadata, and temporal updates. The LLM then transforms this fragmented technical information into coherent situational reports understandable by emergency responders.<br><br>
+          For example, rather than simply outputting raw detection data, the LLM can generate a natural-language report such as:<br><br>
+          “Two vehicles involved in a side-impact collision at a four-way intersection. One lane fully blocked. Moderate traffic congestion forming behind the accident site. Possible pedestrian risk detected near the eastern crosswalk. No visible fire or smoke. Severity classified as medium-high. Recommend police dispatch and ambulance standby.” <br><br>
+          This reporting system dramatically improves emergency communication efficiency because responders no longer need to manually interpret multiple video feeds or sensor streams under time pressure. Instead, they receive concise, prioritized, and structured intelligence summaries generated in real time.
+          An important aspect of the project is that the LLM does not replace police authority or human decision-making. The system acts as an intelligence-assistance layer rather than an autonomous law-enforcement entity. Human officers still make final operational decisions regarding dispatch, road closure, medical response, and investigation procedures. The AI system functions as an early situational-awareness platform that enhances preparation before arrival. <br><br>
+          The training process for the AI system forms another major component of the project. To develop reliable accident-recognition capabilities, the system requires large datasets containing traffic collisions, urban road conditions, environmental variations, and emergency scenarios. The project proposes collecting accident datasets from publicly available traffic footage, simulated environments, synthetic 3D accident generation, and annotated emergency-response archives. These datasets are labeled according to accident type, severity level, environmental risk, pedestrian involvement, and road blockage conditions.<br><br>
+          The computer vision models are trained using supervised learning techniques to recognize patterns associated with traffic accidents. During training, the system learns to differentiate between normal traffic congestion and actual collision events. It also learns to recognize damaged vehicles, identify emergency hazards, and estimate accident severity based on visual cues.
+          The LLM training process focuses on reasoning consistency and emergency-report generation. Structured accident information is paired with professionally formatted incident reports to teach the LLM how to communicate observations clearly and efficiently. Fine-tuning or prompt-engineering methods are used to align the language model with emergency-response terminology and reporting standards. The model is repeatedly tested using simulated accident scenes to evaluate accuracy, clarity, and reliability. <br><br>
+          To improve real-world practicality, the project also considers edge computing and distributed AI deployment. Instead of relying entirely on remote cloud servers, lightweight AI models can operate partially onboard the drone or within nearby edge-computing infrastructure. This reduces latency and allows faster response even during unstable network conditions. Time-sensitive tasks such as object detection and collision recognition can run locally, while larger reasoning models and data storage systems remain connected to centralized city servers.
+          The command-center interface is another important element of the system design. Emergency operators receive live drone feeds, AI-generated reports, accident maps, and severity indicators through a centralized monitoring platform. The interface prioritizes clarity and rapid interpretation rather than overwhelming operators with raw technical information. Police departments, ambulances, firefighters, and traffic-control teams can all access synchronized situational updates through the shared platform.<br><br>
+          The project also explores how drones can continue supporting responders after the initial assessment phase. During ongoing emergencies, the drone can monitor crowd behavior, guide emergency vehicles through traffic, provide overhead visibility during rescue operations, and continue updating the command center as conditions change. In large-scale incidents involving multiple intersections or chain collisions, additional drones may coordinate together as a distributed swarm-response network.<br><br>
+          Beyond the technical system itself, the project also reflects broader questions about the future relationship between AI, infrastructure, and urban governance. Traditionally, city infrastructure such as traffic lights functions passively. This project reimagines infrastructure as an active intelligent participant within the urban ecosystem. Traffic lights no longer simply regulate vehicles; they become embedded AI nodes capable of sensing, reacting, communicating, and assisting emergency systems in real time.
+          The project additionally addresses concerns regarding ethics, surveillance, and public trust. Since the system operates in public urban environments, privacy considerations become essential. The project proposes limiting long-term storage of unnecessary footage, restricting access to sensitive data, and using AI primarily for emergency-response purposes rather than generalized surveillance. Transparency regarding system functionality and accountability remains critical for public acceptance.
+          Visually and conceptually, the project aims to bridge industrial design, artificial intelligence, urban systems, and human-centered technology. It is not only a drone design project, but also a speculative proposal for future smart-city emergency ecosystems. The integration of autonomous robotics, distributed infrastructure, machine perception, and language reasoning creates a multidisciplinary system that combines hardware, software, AI interaction, transportation design, and civic technology into a unified platform.<br><br>
+          Ultimately, the project envisions a future where emergency-response systems become proactive rather than reactive. By reducing the information gap between accident occurrence and responder arrival, the AI-powered traffic drone network has the potential to improve emergency efficiency, reduce traffic disruption, optimize resource allocation, and potentially save lives. The drone does not replace human responders; instead, it extends human awareness into the critical moments before arrival, transforming uncertainty into actionable intelligence. Through this system, the city itself becomes capable of observing, understanding, and responding to emergencies in real time.
+
+</p>
+      </div>
+    </article>
+  </main>
+  <script src="https://unpkg.com/lenis@1.3.13/dist/lenis.min.js"></script>
+  <script>
+    const lenis = new Lenis({
+      duration: 1.1,
+      smoothWheel: true,
+      wheelMultiplier: 1
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  </script>
+</body>
+</html>
