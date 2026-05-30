@@ -6,6 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Chengran Xu</title>
+  <script>
+    (function () {
+      try {
+        const savedTheme = localStorage.getItem("theme");
+        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.dataset.theme = savedTheme || systemTheme;
+      } catch (error) {
+        document.documentElement.dataset.theme = "light";
+      }
+    }());
+  </script>
 
   <style>
     @font-face {
@@ -532,17 +543,6 @@
       color: rgba(244, 244, 244, 0.78);
     }
 
-    .clustrmaps-space {
-      width: min(100%, 520px);
-      min-height: 220px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(244, 244, 244, 0.48);
-      font-size: 14px;
-
-    }
-
     .final-copyright {
       position: absolute;
       left: max(24px, calc((100vw - 1150px) / 2 + 24px));
@@ -712,6 +712,7 @@
 }
 
   </style>
+  <link rel="stylesheet" href="assets/theme.css">
 </head>
 
 <body>
@@ -727,6 +728,7 @@
         <a href="#projects-title">Projects</a>
         <a href="#misc-title">Misc</a>
       </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme"></button>
     </div>
   </header>
 
@@ -918,15 +920,14 @@
 
         <p class="final-email">cxu429 at wisc dot edu</p>
 
-        <div class="clustrmaps-space">
-          <a href='https://clustrmaps.com/site/1ca15'  title='Visit tracker'><img src='//clustrmaps.com/map_v2.png?cl=ffffff&w=337&t=n&d=_5M-FyZlkxR8LJW5RQ492gAKRdcKGCZb5Z6Rfrrmzds&co=202124&ct=202124'/></a>
-        </div>
+        <a href="https://mapmyvisitors.com/web/1c4vy" title="Visit tracker"><img src="https://mapmyvisitors.com/map.png?cl=ffffff&w=a&t=n&d=XsHt1RGQOuYeoXyDvrecT3LQdFnssCT3rfkOXXSCPKU&co=202124&ct=202124" alt="MapMyVisitors visitor tracker"></a>
       </div>
 
       <p class="final-copyright">@ 2026 Chengran Xu</p>
     </section>
   </main>
 
+  <script src="assets/theme.js"></script>
   <script src="https://unpkg.com/lenis@1.3.13/dist/lenis.min.js"></script>
 
   <script>
